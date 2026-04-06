@@ -3,17 +3,31 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>🎯 Target Shooter</title>
+    <title>ElementoX - Jogo Químico</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 ```
-<h1>🎯 Tiro ao Alvo</h1>
-<p>Pontuação: <span id="score">0</span></p>
+<h1>🧪 ElementoX</h1>
+<p>Combine elementos e descubra compostos!</p>
 
-<div id="gameArea">
-    <div id="target"></div>
+<div class="container">
+    <div class="elementos">
+        <button onclick="selecionar('H')">Hidrogênio (H)</button>
+        <button onclick="selecionar('O')">Oxigênio (O)</button>
+        <button onclick="selecionar('Na')">Sódio (Na)</button>
+        <button onclick="selecionar('Cl')">Cloro (Cl)</button>
+    </div>
+
+    <div class="acoes">
+        <button onclick="combinar()">🔗 Combinar</button>
+    </div>
+
+    <div class="resultado">
+        <h2>Resultado:</h2>
+        <p id="saida">Nenhuma combinação ainda...</p>
+    </div>
 </div>
 
 <script src="js/game.js"></script>
