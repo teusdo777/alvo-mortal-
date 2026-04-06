@@ -1,32 +1,28 @@
-let score = 0;
-const target = document.getElementById("target");
-const scoreDisplay = document.getElementById("score");
+let selecionados = [];
 
-function moveTarget() {
-const gameArea = document.getElementById("gameArea");
+function selecionar(elemento) {
+selecionados.push(elemento);
+document.getElementById("saida").innerText =
+"Selecionados: " + selecionados.join(" + ");
+}
+
+function combinar() {
+let resultado = "";
+let combo = selecionados.join("");
 
 ```
-const maxX = gameArea.clientWidth - 50;
-const maxY = gameArea.clientHeight - 50;
+if (combo === "HO" || combo === "OH") {
+    resultado = "💧 Água (H2O) - Essencial para a vida!";
+} 
+else if (combo === "NaCl" || combo === "ClNa") {
+    resultado = "🧂 Sal (NaCl) - Usado na cozinha!";
+} 
+else {
+    resultado = "❌ Combinação desconhecida...";
+}
 
-const x = Math.random() * maxX;
-const y = Math.random() * maxY;
-
-target.style.left = x + "px";
-target.style.top = y + "px";
+document.getElementById("saida").innerText = resultado;
+selecionados = [];
 ```
 
 }
-
-// clicar no alvo
-target.addEventListener("click", () => {
-score++;
-scoreDisplay.innerText = score;
-moveTarget();
-});
-
-// mover automaticamente
-setInterval(moveTarget, 1000);
-
-// posição inicial
-moveTarget();
